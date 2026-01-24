@@ -1,0 +1,27 @@
+{
+  "ongoing": [
+    {
+      "name": "US CPA (Certified Public Accountant)",
+      "issuer": "AICPA",
+      "status": "In Progress",
+      "expected": "April 2026"
+    }
+  ],
+  "completed": [
+    {
+      "name": "Investment Foundations Certificate",
+      "issuer": "CFA Institute",
+      "year": "2023"
+    },
+    {
+      "name": "NISM Series VIII – Equity Derivatives",
+      "issuer": "NISM",
+      "year": "2024"
+    },
+    {
+      "name": "Advanced Excel for Finance",
+      "issuer": "Corporate Finance Institute",
+      "year": "2023"
+    }
+  ]
+}

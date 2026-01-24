@@ -4,6 +4,8 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_auth from "./routes/api/auth.ts";
+import * as $callback from "./routes/callback.ts";
 import * as $index from "./routes/index.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
@@ -13,6 +15,8 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/auth.ts": $api_auth,
+    "./routes/callback.ts": $callback,
     "./routes/index.tsx": $index,
   },
   islands: {

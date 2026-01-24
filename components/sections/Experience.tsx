@@ -1,5 +1,9 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { ExperienceEntry } from "@/lib/content.ts";
+
+interface ExperienceProps {
+  experience: ExperienceEntry[];
+}
 
 /**
  * Experience section - Timeline layout
@@ -7,9 +11,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
  * - Current role highlighted
  * - Company, title, period, achievements
  */
-export function Experience() {
-  const { experience } = siteConfig;
-
+export function Experience({ experience }: ExperienceProps) {
   return (
     <SectionWrapper
       id="experience"

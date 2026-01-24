@@ -1,4 +1,10 @@
 import { siteConfig } from "@/lib/config.ts";
+import type { ContactContent } from "@/lib/content.ts";
+
+interface FooterProps {
+  name: string;
+  contact: ContactContent;
+}
 
 /**
  * Footer component
@@ -6,8 +12,8 @@ import { siteConfig } from "@/lib/config.ts";
  * - Quick links
  * - Copyright
  */
-export function Footer() {
-  const { name, contact, footer } = siteConfig;
+export function Footer({ name, contact }: FooterProps) {
+  const { footer } = siteConfig;
   const currentYear = new Date().getFullYear();
 
   return (

@@ -2,6 +2,10 @@ import { siteConfig } from "@/lib/config.ts";
 import ThemeToggle from "@/islands/ThemeToggle.tsx";
 import MobileNav from "@/islands/MobileNav.tsx";
 
+interface HeaderProps {
+  name: string;
+}
+
 /**
  * Sticky header with navigation
  * - Logo/name links to top of page
@@ -9,13 +13,13 @@ import MobileNav from "@/islands/MobileNav.tsx";
  * - Theme toggle button
  * - Desktop nav visible on md+, hidden on mobile
  */
-export function Header() {
+export function Header({ name }: HeaderProps) {
   return (
     <header class="header">
       <nav class="container flex items-center justify-between" style="height: var(--header-height);">
         {/* Logo / Name */}
         <a href="/" class="font-heading font-bold text-xl text-primary">
-          {siteConfig.name}
+          {name}
         </a>
 
         {/* Desktop Navigation + Theme Toggle */}

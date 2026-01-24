@@ -1,14 +1,16 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { CertificationsContent } from "@/lib/content.ts";
+
+interface CertificationsProps {
+  certifications: CertificationsContent;
+}
 
 /**
  * Certifications section
  * - Ongoing certifications (CPA) with status badge
  * - Completed certifications with year
  */
-export function Certifications() {
-  const { certifications } = siteConfig;
-
+export function Certifications({ certifications }: CertificationsProps) {
   return (
     <SectionWrapper
       id="certifications"

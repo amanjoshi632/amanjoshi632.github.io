@@ -1,14 +1,16 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { ContactContent } from "@/lib/content.ts";
+
+interface ContactProps {
+  contact: ContactContent;
+}
 
 /**
  * Contact section - Display only (no form)
  * - Email, phone, LinkedIn
  * - Location
  */
-export function Contact() {
-  const { contact } = siteConfig;
-
+export function Contact({ contact }: ContactProps) {
   return (
     <SectionWrapper
       id="contact"

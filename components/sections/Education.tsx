@@ -1,14 +1,16 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { EducationEntry } from "@/lib/content.ts";
+
+interface EducationProps {
+  education: EducationEntry[];
+}
 
 /**
  * Education section
  * - Degree cards with institution and year
  * - Optional highlights
  */
-export function Education() {
-  const { education } = siteConfig;
-
+export function Education({ education }: EducationProps) {
   return (
     <SectionWrapper
       id="education"

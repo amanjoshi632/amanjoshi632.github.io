@@ -1,5 +1,9 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { SkillsContent } from "@/lib/content.ts";
+
+interface SkillsProps {
+  skills: SkillsContent;
+}
 
 /**
  * Skills section - 4 category grid
@@ -8,9 +12,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
  * - Tax & Compliance
  * - Tools & Technology
  */
-export function Skills() {
-  const { skills } = siteConfig;
-
+export function Skills({ skills }: SkillsProps) {
   // Convert skills object to array for iteration
   const skillCategories = Object.entries(skills).map(([key, category]) => ({
     key,

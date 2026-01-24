@@ -1,0 +1,199 @@
+# Decap CMS Configuration for Aman Joshi Portfolio
+#
+# LOCAL DEVELOPMENT: Set local_backend: true
+# PRODUCTION: Set local_backend: false (or remove the line)
+
+# Toggle this for local vs production
+local_backend: true
+
+backend:
+  name: github
+  repo: amanjoshi632/amanjoshi632.github.io  # Your GitHub repo
+  branch: main
+  base_url: https://amanjoshi.deno.dev  # Your production URL (for OAuth)
+  auth_endpoint: /api/auth  # Fresh OAuth route
+
+# Media files stored in static/uploads
+media_folder: static/uploads
+public_folder: /uploads
+
+# Content collections
+collections:
+  # Site Info - Single file
+  - name: site
+    label: Site Info
+    files:
+      - name: site
+        label: Site Information
+        file: content/site.json
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title/Tagline, widget: string }
+          - { name: description, label: Description, widget: text }
+          - { name: url, label: Site URL, widget: string }
+
+  # About Section - Single file
+  - name: about
+    label: About
+    files:
+      - name: about
+        label: About Section
+        file: content/about.json
+        fields:
+          - { name: intro, label: Introduction, widget: text }
+          - { name: careerGoal, label: Career Goal, widget: text }
+          - name: highlights
+            label: Key Highlights
+            widget: list
+            field: { name: highlight, label: Highlight, widget: string }
+          - { name: cpaStatus, label: CPA Status, widget: string }
+
+  # Skills Section - Single file
+  - name: skills
+    label: Skills
+    files:
+      - name: skills
+        label: Skills Categories
+        file: content/skills.json
+        fields:
+          - name: accounting
+            label: Accounting & Financial Reporting
+            widget: object
+            fields:
+              - { name: title, label: Category Title, widget: string }
+              - name: items
+                label: Skills
+                widget: list
+                field: { name: skill, label: Skill, widget: string }
+          - name: audit
+            label: Audit & Assurance
+            widget: object
+            fields:
+              - { name: title, label: Category Title, widget: string }
+              - name: items
+                label: Skills
+                widget: list
+                field: { name: skill, label: Skill, widget: string }
+          - name: tax
+            label: Tax & Compliance
+            widget: object
+            fields:
+              - { name: title, label: Category Title, widget: string }
+              - name: items
+                label: Skills
+                widget: list
+                field: { name: skill, label: Skill, widget: string }
+          - name: tools
+            label: Tools & Technology
+            widget: object
+            fields:
+              - { name: title, label: Category Title, widget: string }
+              - name: items
+                label: Skills
+                widget: list
+                field: { name: skill, label: Skill, widget: string }
+
+  # Experience - List of entries
+  - name: experience
+    label: Experience
+    files:
+      - name: experience
+        label: Work Experience
+        file: content/experience.json
+        fields:
+          - name: entries
+            label: Experience Entries
+            widget: list
+            fields:
+              - { name: title, label: Job Title, widget: string }
+              - { name: company, label: Company, widget: string }
+              - { name: type, label: Employment Type, widget: string, hint: "e.g., Full-Time, Part-Time" }
+              - { name: period, label: Period, widget: string, hint: "e.g., Mar 2024 – Nov 2024" }
+              - { name: current, label: Current Role?, widget: boolean, default: false }
+              - { name: description, label: Description, widget: text }
+              - name: achievements
+                label: Key Achievements
+                widget: list
+                field: { name: achievement, label: Achievement, widget: string }
+
+  # Projects - List of entries
+  - name: projects
+    label: Projects
+    files:
+      - name: projects
+        label: Projects List
+        file: content/projects.json
+        fields:
+          - name: entries
+            label: Project Entries
+            widget: list
+            fields:
+              - { name: title, label: Project Title, widget: string }
+              - { name: type, label: Project Type, widget: string, hint: "e.g., Academic Project, Personal Project" }
+              - { name: description, label: Description, widget: text }
+              - name: highlights
+                label: Key Highlights
+                widget: list
+                field: { name: highlight, label: Highlight, widget: string }
+              - name: skills
+                label: Skills Applied
+                widget: list
+                field: { name: skill, label: Skill, widget: string }
+
+  # Certifications - Single file with two arrays
+  - name: certifications
+    label: Certifications
+    files:
+      - name: certifications
+        label: Professional Qualifications
+        file: content/certifications.json
+        fields:
+          - name: ongoing
+            label: In Progress
+            widget: list
+            fields:
+              - { name: name, label: Certification Name, widget: string }
+              - { name: issuer, label: Issuing Organization, widget: string }
+              - { name: status, label: Status, widget: string, default: "In Progress" }
+              - { name: expected, label: Expected Completion, widget: string, required: false }
+          - name: completed
+            label: Completed
+            widget: list
+            fields:
+              - { name: name, label: Certification Name, widget: string }
+              - { name: issuer, label: Issuing Organization, widget: string }
+              - { name: year, label: Year Completed, widget: string }
+
+  # Education - List of entries
+  - name: education
+    label: Education
+    files:
+      - name: education
+        label: Education History
+        file: content/education.json
+        fields:
+          - name: entries
+            label: Education Entries
+            widget: list
+            fields:
+              - { name: degree, label: Degree, widget: string }
+              - { name: institution, label: Institution, widget: string }
+              - { name: year, label: Year, widget: string }
+              - name: highlights
+                label: Highlights
+                widget: list
+                required: false
+                field: { name: highlight, label: Highlight, widget: string }
+
+  # Contact - Single file
+  - name: contact
+    label: Contact
+    files:
+      - name: contact
+        label: Contact Information
+        file: content/contact.json
+        fields:
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Phone, widget: string }
+          - { name: linkedin, label: LinkedIn URL, widget: string }
+          - { name: location, label: Location, widget: string }

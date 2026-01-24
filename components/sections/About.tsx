@@ -1,5 +1,9 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { AboutContent } from "@/lib/content.ts";
+
+interface AboutProps {
+  about: AboutContent;
+}
 
 /**
  * About section - Professional introduction
@@ -8,9 +12,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
  * - Key highlights
  * - CPA status badge
  */
-export function About() {
-  const { about } = siteConfig;
-
+export function About({ about }: AboutProps) {
   return (
     <SectionWrapper
       id="about"

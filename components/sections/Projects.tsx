@@ -1,13 +1,16 @@
-import { siteConfig } from "@/lib/config.ts";
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
+import type { ProjectEntry } from "@/lib/content.ts";
+
+interface ProjectsProps {
+  projects: ProjectEntry[];
+}
 
 /**
  * Projects section - Academic and practical projects
  * - Single project: full-width card with 2-column internal layout
  * - Multiple projects: grid layout
  */
-export function Projects() {
-  const { projects } = siteConfig;
+export function Projects({ projects }: ProjectsProps) {
   const isSingleProject = projects.length === 1;
 
   return (

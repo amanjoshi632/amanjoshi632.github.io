@@ -1,5 +1,10 @@
 import { siteConfig } from "@/lib/config.ts";
 import { Button } from "@/components/ui/Button.tsx";
+import type { SiteContent } from "@/lib/content.ts";
+
+interface HeroProps {
+  site: SiteContent;
+}
 
 /**
  * Hero section - First thing visitors see
@@ -7,8 +12,8 @@ import { Button } from "@/components/ui/Button.tsx";
  * - Name, title, subtitle, and CTA buttons
  * - Profile photo with professional styling
  */
-export function Hero() {
-  const { name, title, hero } = siteConfig;
+export function Hero({ site }: HeroProps) {
+  const { heroCta } = siteConfig;
 
   return (
     <section class="hero">
@@ -16,12 +21,12 @@ export function Hero() {
         <div class="hero-content">
           {/* Text Content */}
           <div class="hero-text">
-            <h1 class="hero-title">{name}</h1>
-            <p class="hero-subtitle">{title}</p>
-            <p class="hero-description">{hero.subtitle}</p>
+            <h1 class="hero-title">{site.name}</h1>
+            <p class="hero-subtitle">{site.title}</p>
+            <p class="hero-description">{site.description}</p>
 
             <div class="flex flex-wrap gap-3">
-              {hero.cta.map((item) => (
+              {heroCta.map((item) => (
                 <Button
                   key={item.label}
                   href={item.href}
@@ -37,7 +42,7 @@ export function Hero() {
           <div class="hero-photo">
             <img
               src="/profile.jpg"
-              alt={`${name} - Professional headshot`}
+              alt={`${site.name} - Professional headshot`}
               class="profile-image"
               width="280"
               height="350"

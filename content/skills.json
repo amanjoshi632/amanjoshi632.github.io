@@ -1,0 +1,38 @@
+{
+  "accounting": {
+    "title": "Accounting & Financial Reporting",
+    "items": [
+      "Bookkeeping (Indian GAAP)",
+      "Financial Statements",
+      "Trial Balance & Finalisation",
+      "Reconciliations"
+    ]
+  },
+  "audit": {
+    "title": "Audit & Assurance",
+    "items": [
+      "Vouching & Verification",
+      "Substantive Testing",
+      "Audit Schedules",
+      "Working Papers & Documentation"
+    ]
+  },
+  "tax": {
+    "title": "Tax & Compliance",
+    "items": [
+      "GST Workings",
+      "TDS Computation",
+      "Income Tax Documentation",
+      "Regulatory Compliance"
+    ]
+  },
+  "tools": {
+    "title": "Tools & Technology",
+    "items": [
+      "Tally ERP",
+      "Microsoft Excel (Pivot, VLOOKUP)",
+      "MS Office Suite",
+      "Financial Modeling"
+    ]
+  }
+}

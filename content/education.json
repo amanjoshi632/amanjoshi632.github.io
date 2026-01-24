@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "degree": "Master of Commerce (M.Com)",
+      "institution": "IGNOU",
+      "year": "2024",
+      "highlights": ["Distance Learning", "Finance Specialization"]
+    },
+    {
+      "degree": "Bachelor of Commerce (Honours)",
+      "institution": "University of Calcutta",
+      "year": "2021",
+      "highlights": ["Accounting & Finance Major"]
+    }
+  ]
+}
