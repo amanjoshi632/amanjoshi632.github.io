@@ -31,6 +31,8 @@ collections:
           - { name: title, label: Title/Tagline, widget: string }
           - { name: description, label: Description, widget: text }
           - { name: url, label: Site URL, widget: string }
+          - { name: profilePhoto, label: Profile Photo, widget: image, required: false, hint: "Professional headshot for hero section" }
+          - { name: resume, label: Resume PDF, widget: file, required: false, hint: "PDF resume for download" }
 
   # About Section - Single file
   - name: about
@@ -115,6 +117,8 @@ collections:
                 label: Key Achievements
                 widget: list
                 field: { name: achievement, label: Achievement, widget: string }
+              - { name: companyLogo, label: Company Logo, widget: image, required: false, hint: "Optional company logo" }
+              - { name: experienceLetter, label: Experience Letter, widget: file, required: false, hint: "PDF experience/offer letter" }
 
   # Projects - List of entries
   - name: projects
@@ -139,6 +143,9 @@ collections:
                 label: Skills Applied
                 widget: list
                 field: { name: skill, label: Skill, widget: string }
+              - { name: image, label: Project Image, widget: image, required: false, hint: "Screenshot or cover image" }
+              - { name: document, label: Project Document, widget: file, required: false, hint: "PDF report or documentation" }
+              - { name: link, label: Project Link, widget: string, required: false, hint: "External URL if applicable" }
 
   # Certifications - Single file with two arrays
   - name: certifications
@@ -156,6 +163,7 @@ collections:
               - { name: issuer, label: Issuing Organization, widget: string }
               - { name: status, label: Status, widget: string, default: "In Progress" }
               - { name: expected, label: Expected Completion, widget: string, required: false }
+              - { name: logo, label: Issuer Logo, widget: image, required: false }
           - name: completed
             label: Completed
             widget: list
@@ -163,6 +171,9 @@ collections:
               - { name: name, label: Certification Name, widget: string }
               - { name: issuer, label: Issuing Organization, widget: string }
               - { name: year, label: Year Completed, widget: string }
+              - { name: logo, label: Issuer Logo, widget: image, required: false }
+              - { name: certificate, label: Certificate PDF, widget: file, required: false, hint: "PDF or image of certificate" }
+              - { name: credentialUrl, label: Credential URL, widget: string, required: false, hint: "Online verification link" }
 
   # Education - List of entries
   - name: education
@@ -184,6 +195,8 @@ collections:
                 widget: list
                 required: false
                 field: { name: highlight, label: Highlight, widget: string }
+              - { name: logo, label: Institution Logo, widget: image, required: false }
+              - { name: transcript, label: Transcript/Certificate, widget: file, required: false, hint: "PDF degree certificate or transcript" }
 
   # Contact - Single file
   - name: contact

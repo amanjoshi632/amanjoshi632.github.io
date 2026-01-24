@@ -15,6 +15,19 @@ interface HeroProps {
 export function Hero({ site }: HeroProps) {
   const { heroCta } = siteConfig;
 
+  // Replace #resume placeholder with actual resume URL from CMS
+  const getCtaHref = (href: string) => {
+    if (href === "#resume" && site.resume) {
+      return site.resume;
+    }
+    return href;
+  };
+
+  // Check if link is external (for target="_blank")
+  const isExternal = (href: string) => {
+    return href.startsWith("http") || href.endsWith(".pdf");
+  };
+
   return (
     <section class="hero">
       <div class="container">
@@ -26,22 +39,27 @@ export function Hero({ site }: HeroProps) {
             <p class="hero-description">{site.description}</p>
 
             <div class="flex flex-wrap gap-3">
-              {heroCta.map((item) => (
-                <Button
-                  key={item.label}
-                  href={item.href}
-                  variant={item.variant as "primary" | "secondary" | "outline"}
-                >
-                  {item.label}
-                </Button>
-              ))}
+              {heroCta.map((item) => {
+                const href = getCtaHref(item.href);
+                const external = isExternal(href);
+                return (
+                  <Button
+                    key={item.label}
+                    href={href}
+                    variant={item.variant as "primary" | "secondary" | "outline"}
+                    external={external}
+                  >
+                    {item.label}
+                  </Button>
+                );
+              })}
             </div>
           </div>
 
           {/* Profile Photo */}
           <div class="hero-photo">
             <img
-              src="/profile.jpg"
+              src={site.profilePhoto || "/uploads/profile.jpg"}
               alt={`${site.name} - Professional headshot`}
               class="profile-image"
               width="280"

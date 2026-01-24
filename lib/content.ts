@@ -10,6 +10,8 @@ export interface SiteContent {
   title: string;
   description: string;
   url: string;
+  profilePhoto?: string;
+  resume?: string;
 }
 
 export interface AboutContent {
@@ -100,6 +102,8 @@ const defaults: Content = {
     title: "Your Title",
     description: "Your description",
     url: "https://example.com",
+    profilePhoto: "/uploads/profile.jpg",
+    resume: "",
   },
   about: {
     intro: "Your introduction",
