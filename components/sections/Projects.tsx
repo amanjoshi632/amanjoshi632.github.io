@@ -1,8 +1,8 @@
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
-import type { ProjectEntry } from "@/lib/content.ts";
+import type { ProjectsContent } from "@/lib/content.ts";
 
 interface ProjectsProps {
-  projects: ProjectEntry[];
+  projects: ProjectsContent;
 }
 
 /**
@@ -11,18 +11,18 @@ interface ProjectsProps {
  * - Multiple projects: grid layout
  */
 export function Projects({ projects }: ProjectsProps) {
-  const isSingleProject = projects.length === 1;
+  const isSingleProject = projects.entries.length === 1;
 
   return (
     <SectionWrapper
       id="projects"
-      title="Academic & Practical Projects"
-      subtitle="Research projects demonstrating analytical and financial skills."
+      title={projects.sectionTitle}
+      subtitle={projects.sectionSubtitle}
       alternateBackground
     >
       {/* Use full-width for single project, grid for multiple */}
       <div class={isSingleProject ? "max-w-3xl mx-auto" : "grid grid-2 gap-6"}>
-        {projects.map((project, index) => (
+        {projects.entries.map((project, index) => (
           <div key={index} class="card">
             {/* Header with title and badge */}
             <div class="flex flex-wrap items-start justify-between gap-3 mb-4">

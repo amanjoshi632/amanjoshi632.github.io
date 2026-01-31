@@ -14,8 +14,8 @@ export function Certifications({ certifications }: CertificationsProps) {
   return (
     <SectionWrapper
       id="certifications"
-      title="Professional Qualifications"
-      subtitle="Industry certifications and professional development."
+      title={certifications.sectionTitle}
+      subtitle={certifications.sectionSubtitle}
     >
       <div class="grid grid-2 gap-8">
         {/* Ongoing Certifications */}

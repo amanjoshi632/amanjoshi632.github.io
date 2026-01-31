@@ -42,6 +42,8 @@ collections:
         label: About Section
         file: content/about.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "About Me" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - { name: intro, label: Introduction, widget: text }
           - { name: careerGoal, label: Career Goal, widget: text }
           - name: highlights
@@ -58,6 +60,8 @@ collections:
         label: Skills Categories
         file: content/skills.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Core Skills" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - name: accounting
             label: Accounting & Financial Reporting
             widget: object
@@ -103,6 +107,8 @@ collections:
         label: Work Experience
         file: content/experience.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Professional Experience" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - name: entries
             label: Experience Entries
             widget: list
@@ -128,6 +134,8 @@ collections:
         label: Projects List
         file: content/projects.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Academic & Practical Projects" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - name: entries
             label: Project Entries
             widget: list
@@ -155,6 +163,8 @@ collections:
         label: Professional Qualifications
         file: content/certifications.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Professional Qualifications" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - name: ongoing
             label: In Progress
             widget: list
@@ -183,6 +193,8 @@ collections:
         label: Education History
         file: content/education.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Education" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - name: entries
             label: Education Entries
             widget: list
@@ -206,6 +218,8 @@ collections:
         label: Contact Information
         file: content/contact.json
         fields:
+          - { name: sectionTitle, label: Section Title, widget: string, default: "Get in Touch" }
+          - { name: sectionSubtitle, label: Section Subtitle, widget: text, required: false }
           - { name: email, label: Email, widget: string }
           - { name: phone, label: Phone, widget: string, required: false }
           - { name: location, label: Location, widget: string, required: false }

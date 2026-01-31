@@ -13,17 +13,19 @@ interface SkillsProps {
  * - Tools & Technology
  */
 export function Skills({ skills }: SkillsProps) {
-  // Convert skills object to array for iteration
-  const skillCategories = Object.entries(skills).map(([key, category]) => ({
-    key,
-    ...category,
-  }));
+  // Convert skills object to array for iteration (excluding section metadata)
+  const skillCategories = Object.entries(skills)
+    .filter(([key]) => !["sectionTitle", "sectionSubtitle"].includes(key))
+    .map(([key, category]) => ({
+      key,
+      ...(category as { title: string; items: string[] }),
+    }));
 
   return (
     <SectionWrapper
       id="skills"
-      title="Core Skills"
-      subtitle="Technical expertise across accounting, audit, tax, and financial technology."
+      title={skills.sectionTitle}
+      subtitle={skills.sectionSubtitle}
       alternateBackground
     >
       <div class="grid grid-4 gap-6">

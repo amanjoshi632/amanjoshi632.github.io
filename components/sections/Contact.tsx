@@ -14,8 +14,8 @@ export function Contact({ contact }: ContactProps) {
   return (
     <SectionWrapper
       id="contact"
-      title="Get in Touch"
-      subtitle="Open to discussing audit and accounting opportunities."
+      title={contact.sectionTitle}
+      subtitle={contact.sectionSubtitle}
     >
       <div class="max-w-2xl mx-auto">
         <div class="card p-6">

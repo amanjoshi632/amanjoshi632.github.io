@@ -16,8 +16,8 @@ export function About({ about }: AboutProps) {
   return (
     <SectionWrapper
       id="about"
-      title="About Me"
-      subtitle="Audit-focused accounting professional with strong foundation in bookkeeping, reconciliations and compliance."
+      title={about.sectionTitle}
+      subtitle={about.sectionSubtitle}
     >
       <div class="grid grid-2 gap-8">
         {/* Left column - Introduction */}

@@ -1,8 +1,8 @@
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
-import type { EducationEntry } from "@/lib/content.ts";
+import type { EducationContent } from "@/lib/content.ts";
 
 interface EducationProps {
-  education: EducationEntry[];
+  education: EducationContent;
 }
 
 /**
@@ -14,12 +14,12 @@ export function Education({ education }: EducationProps) {
   return (
     <SectionWrapper
       id="education"
-      title="Education"
-      subtitle="Academic qualifications in commerce and finance."
+      title={education.sectionTitle}
+      subtitle={education.sectionSubtitle}
       alternateBackground
     >
       <div class="grid grid-2 gap-6">
-        {education.map((edu, index) => (
+        {education.entries.map((edu, index) => (
           <div key={index} class="card">
             <h3 class="card-title">{edu.degree}</h3>
             <p class="card-subtitle">{edu.institution}</p>

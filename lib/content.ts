@@ -15,6 +15,8 @@ export interface SiteContent {
 }
 
 export interface AboutContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
   intro: string;
   careerGoal: string;
   highlights: string[];
@@ -27,6 +29,8 @@ export interface SkillCategory {
 }
 
 export interface SkillsContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
   accounting: SkillCategory;
   audit: SkillCategory;
   tax: SkillCategory;
@@ -43,12 +47,24 @@ export interface ExperienceEntry {
   achievements: string[];
 }
 
+export interface ExperienceContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
+  entries: ExperienceEntry[];
+}
+
 export interface ProjectEntry {
   title: string;
   type: string;
   description: string;
   highlights: string[];
   skills: string[];
+}
+
+export interface ProjectsContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
+  entries: ProjectEntry[];
 }
 
 export interface OngoingCertification {
@@ -65,6 +81,8 @@ export interface CompletedCertification {
 }
 
 export interface CertificationsContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
   ongoing: OngoingCertification[];
   completed: CompletedCertification[];
 }
@@ -76,6 +94,12 @@ export interface EducationEntry {
   highlights?: string[];
 }
 
+export interface EducationContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
+  entries: EducationEntry[];
+}
+
 export interface ContactLink {
   title: string;
   url: string;
@@ -83,6 +107,8 @@ export interface ContactLink {
 }
 
 export interface ContactContent {
+  sectionTitle: string;
+  sectionSubtitle?: string;
   email: string;
   phone?: string;
   location?: string;
@@ -94,10 +120,10 @@ export interface Content {
   site: SiteContent;
   about: AboutContent;
   skills: SkillsContent;
-  experience: ExperienceEntry[];
-  projects: ProjectEntry[];
+  experience: ExperienceContent;
+  projects: ProjectsContent;
   certifications: CertificationsContent;
-  education: EducationEntry[];
+  education: EducationContent;
   contact: ContactContent;
 }
 
@@ -112,22 +138,45 @@ const defaults: Content = {
     resume: "",
   },
   about: {
+    sectionTitle: "About Me",
+    sectionSubtitle: "Professional introduction.",
     intro: "Your introduction",
     careerGoal: "Your career goal",
     highlights: [],
     cpaStatus: "",
   },
   skills: {
+    sectionTitle: "Core Skills",
+    sectionSubtitle: "Technical expertise.",
     accounting: { title: "Accounting", items: [] },
     audit: { title: "Audit", items: [] },
     tax: { title: "Tax", items: [] },
     tools: { title: "Tools", items: [] },
   },
-  experience: [],
-  projects: [],
-  certifications: { ongoing: [], completed: [] },
-  education: [],
+  experience: {
+    sectionTitle: "Professional Experience",
+    sectionSubtitle: "Career journey.",
+    entries: [],
+  },
+  projects: {
+    sectionTitle: "Projects",
+    sectionSubtitle: "Academic and practical work.",
+    entries: [],
+  },
+  certifications: {
+    sectionTitle: "Professional Qualifications",
+    sectionSubtitle: "Industry certifications.",
+    ongoing: [],
+    completed: [],
+  },
+  education: {
+    sectionTitle: "Education",
+    sectionSubtitle: "Academic qualifications.",
+    entries: [],
+  },
   contact: {
+    sectionTitle: "Get in Touch",
+    sectionSubtitle: "Open to discussing opportunities.",
     email: "email@example.com",
     phone: "",
     location: "",
@@ -160,19 +209,19 @@ export async function loadContent(): Promise<Content> {
     site,
     about,
     skills,
-    experienceData,
-    projectsData,
+    experience,
+    projects,
     certifications,
-    educationData,
+    education,
     contact,
   ] = await Promise.all([
     readContentFile<SiteContent>("site.json", defaults.site),
     readContentFile<AboutContent>("about.json", defaults.about),
     readContentFile<SkillsContent>("skills.json", defaults.skills),
-    readContentFile<{ entries: ExperienceEntry[] }>("experience.json", { entries: defaults.experience }),
-    readContentFile<{ entries: ProjectEntry[] }>("projects.json", { entries: defaults.projects }),
+    readContentFile<ExperienceContent>("experience.json", defaults.experience),
+    readContentFile<ProjectsContent>("projects.json", defaults.projects),
     readContentFile<CertificationsContent>("certifications.json", defaults.certifications),
-    readContentFile<{ entries: EducationEntry[] }>("education.json", { entries: defaults.education }),
+    readContentFile<EducationContent>("education.json", defaults.education),
     readContentFile<ContactContent>("contact.json", defaults.contact),
   ]);
 
@@ -180,10 +229,10 @@ export async function loadContent(): Promise<Content> {
     site,
     about,
     skills,
-    experience: experienceData.entries,
-    projects: projectsData.entries,
+    experience,
+    projects,
     certifications,
-    education: educationData.entries,
+    education,
     contact,
   };
 }

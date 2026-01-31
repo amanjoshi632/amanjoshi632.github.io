@@ -1,8 +1,8 @@
 import { SectionWrapper } from "@/components/ui/SectionWrapper.tsx";
-import type { ExperienceEntry } from "@/lib/content.ts";
+import type { ExperienceContent } from "@/lib/content.ts";
 
 interface ExperienceProps {
-  experience: ExperienceEntry[];
+  experience: ExperienceContent;
 }
 
 /**
@@ -15,11 +15,11 @@ export function Experience({ experience }: ExperienceProps) {
   return (
     <SectionWrapper
       id="experience"
-      title="Professional Experience"
-      subtitle="Career journey in accounting, audit, and financial services."
+      title={experience.sectionTitle}
+      subtitle={experience.sectionSubtitle}
     >
       <div class="timeline">
-        {experience.map((role, index) => (
+        {experience.entries.map((role, index) => (
           <div key={index} class="timeline-item">
             <div class={`timeline-dot ${role.current ? "timeline-dot-current" : ""}`} />
 
