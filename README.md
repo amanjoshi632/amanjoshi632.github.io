@@ -8,7 +8,8 @@ A modern, single-page portfolio website for Aman Joshi, a CPA/Audit professional
 - **Dark Mode Toggle** - System-aware theme switching with localStorage persistence (no flash)
 - **Mobile Responsive** - Adaptive layout with mobile navigation drawer and optimized touch interactions
 - **Decap CMS Integration** - Git-based headless CMS for easy content editing without code changes
-- **Dynamic Content** - Page title, contact links, and all sections loaded from CMS JSON files
+- **Dynamic Content** - Page title, section titles/subtitles, contact links, and all content loaded from CMS JSON files
+- **Fully Editable Sections** - Every section's title and subtitle customizable via CMS admin panel
 - **SEO Optimized** - Open Graph meta tags, semantic HTML, and optimized page structure
 - **Component-Based Architecture** - Reusable UI components and section-based organization
 - **Type-Safe** - Full TypeScript support with strict mode enabled
@@ -144,13 +145,15 @@ amanjoshi632.github.io/
 Most content is managed through Decap CMS at `/admin/index.html`:
 
 - **Site Info** - Name, title, description, profile photo, resume
-- **About** - Introduction, career goals, highlights
-- **Skills** - 4 skill categories with items
-- **Experience** - Work history with achievements
-- **Projects** - Project entries with highlights
-- **Certifications** - Ongoing and completed certifications
-- **Education** - Education history
-- **Contact** - Email, phone, location, and unlimited social links
+- **About** - Section title/subtitle, introduction, career goals, highlights
+- **Skills** - Section title/subtitle, 4 skill categories with items
+- **Experience** - Section title/subtitle, work history with achievements
+- **Projects** - Section title/subtitle, project entries with highlights
+- **Certifications** - Section title/subtitle, ongoing and completed certifications
+- **Education** - Section title/subtitle, education history
+- **Contact** - Section title/subtitle, email, phone, location, and unlimited social links
+
+> **Note:** Every section has editable `sectionTitle` and `sectionSubtitle` fields, allowing complete customization of headings without code changes.
 
 ### Code-Only Configuration
 
