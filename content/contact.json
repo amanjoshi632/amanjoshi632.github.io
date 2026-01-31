@@ -1,6 +1,12 @@
 {
   "email": "amanjoshi632@gmail.com",
   "phone": "+91 8582845194",
-  "linkedin": "https://www.linkedin.com/in/amanjoshi01/",
-  "location": "Kolkata, India"
+  "location": "Kolkata, India",
+  "links": [
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/amanjoshi01/",
+      "icon": "in"
+    }
+  ]
 }

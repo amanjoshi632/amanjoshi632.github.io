@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Head } from "$fresh/runtime.ts";
 import { loadContent, Content } from "@/lib/content.ts";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
@@ -29,6 +30,12 @@ export const handler: Handlers<Content> = {
 export default function Home({ data: content }: PageProps<Content>) {
   return (
     <>
+      <Head>
+        <title>{content.site.name} | {content.site.title}</title>
+        <meta name="description" content={content.site.description} />
+        <meta property="og:title" content={`${content.site.name} | ${content.site.title}`} />
+        <meta property="og:description" content={content.site.description} />
+      </Head>
       <Header name={content.site.name} />
       <main>
         <Hero site={content.site} />

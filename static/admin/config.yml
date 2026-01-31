@@ -207,6 +207,12 @@ collections:
         file: content/contact.json
         fields:
           - { name: email, label: Email, widget: string }
-          - { name: phone, label: Phone, widget: string }
-          - { name: linkedin, label: LinkedIn URL, widget: string }
-          - { name: location, label: Location, widget: string }
+          - { name: phone, label: Phone, widget: string, required: false }
+          - { name: location, label: Location, widget: string, required: false }
+          - name: links
+            label: Social & Other Links
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string, hint: "e.g., LinkedIn, GitHub, Twitter" }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: Icon, widget: string, required: false, hint: "Emoji or text icon (e.g., 🔗, in, gh)" }

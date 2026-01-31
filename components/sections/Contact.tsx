@@ -7,8 +7,8 @@ interface ContactProps {
 
 /**
  * Contact section - Display only (no form)
- * - Email, phone, LinkedIn
- * - Location
+ * - Email, phone, location (fixed)
+ * - Dynamic links (LinkedIn, GitHub, etc.)
  */
 export function Contact({ contact }: ContactProps) {
   return (
@@ -35,34 +35,38 @@ export function Contact({ contact }: ContactProps) {
             </div>
 
             {/* Phone */}
-            <div class="flex items-start gap-3">
-              <div class="text-accent text-xl">☎</div>
-              <div>
-                <p class="font-medium text-primary">Phone</p>
-                <a
-                  href={`tel:${contact.phone}`}
-                  class="text-secondary hover:text-accent transition-colors"
-                >
-                  {contact.phone}
-                </a>
+            {contact.phone && (
+              <div class="flex items-start gap-3">
+                <div class="text-accent text-xl">☎</div>
+                <div>
+                  <p class="font-medium text-primary">Phone</p>
+                  <a
+                    href={`tel:${contact.phone}`}
+                    class="text-secondary hover:text-accent transition-colors"
+                  >
+                    {contact.phone}
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* LinkedIn */}
-            <div class="flex items-start gap-3">
-              <div class="text-accent text-xl">in</div>
-              <div>
-                <p class="font-medium text-primary">LinkedIn</p>
-                <a
-                  href={contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-secondary hover:text-accent transition-colors"
-                >
-                  View Profile
-                </a>
+            {/* Dynamic Links */}
+            {contact.links?.map((link) => (
+              <div class="flex items-start gap-3" key={link.url}>
+                <div class="text-accent text-xl">{link.icon || "🔗"}</div>
+                <div>
+                  <p class="font-medium text-primary">{link.title}</p>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-secondary hover:text-accent transition-colors"
+                  >
+                    View Profile
+                  </a>
+                </div>
               </div>
-            </div>
+            ))}
 
             {/* Location */}
             {contact.location && (

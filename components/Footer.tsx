@@ -49,11 +49,13 @@ export function Footer({ name, contact }: FooterProps) {
               <li>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </li>
-              <li>
-                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-              </li>
+              {contact.links?.map((link) => (
+                <li key={link.url}>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

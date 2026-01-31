@@ -7,7 +7,8 @@ A modern, single-page portfolio website for Aman Joshi, a CPA/Audit professional
 - **Single-Page Layout** - Smooth scroll navigation with anchor links for seamless user experience
 - **Dark Mode Toggle** - System-aware theme switching with localStorage persistence (no flash)
 - **Mobile Responsive** - Adaptive layout with mobile navigation drawer and optimized touch interactions
-- **Centralized Configuration** - All content managed through `lib/config.ts` for easy updates
+- **Decap CMS Integration** - Git-based headless CMS for easy content editing without code changes
+- **Dynamic Content** - Page title, contact links, and all sections loaded from CMS JSON files
 - **SEO Optimized** - Open Graph meta tags, semantic HTML, and optimized page structure
 - **Component-Based Architecture** - Reusable UI components and section-based organization
 - **Type-Safe** - Full TypeScript support with strict mode enabled
@@ -20,6 +21,7 @@ A modern, single-page portfolio website for Aman Joshi, a CPA/Audit professional
 | Deno Fresh 1.7.3 | Modern web framework with server-side rendering and islands architecture |
 | Preact 10.22.0 | Lightweight React alternative for interactive components |
 | TypeScript | Type-safe development with strict compiler options |
+| Decap CMS 3.x | Git-based headless CMS for content management |
 | Signals | Reactive state management for theme toggle and mobile nav |
 | Google Fonts | Inter (headings) and Open Sans (body) for professional typography |
 | CSS Custom Properties | Theme system with dark/light mode support |
@@ -44,11 +46,17 @@ cd amanjoshi632.github.io
 ### Running Locally
 
 ```bash
-# Development server with hot reload
+# Terminal 1: Start Decap CMS local proxy (for content editing)
+npx decap-server
+
+# Terminal 2: Start Fresh development server
 deno task start
 
-# The site will be available at http://localhost:8000
+# Site: http://localhost:8000
+# CMS Admin: http://localhost:8000/admin/index.html
 ```
+
+> **Note:** The Decap proxy server is only needed when editing content locally. For just viewing the site, only `deno task start` is required.
 
 ### Building for Production
 
@@ -107,8 +115,21 @@ amanjoshi632.github.io/
 │   ├── index.tsx        # Homepage (renders all sections)
 │   └── _404.tsx         # Custom 404 page
 ├── lib/                 # Utilities and configuration
-│   └── config.ts        # Site configuration (all content)
+│   ├── config.ts        # Non-CMS config (nav, theme, CTAs)
+│   └── content.ts       # CMS content loader and types
+├── content/             # CMS-managed JSON content
+│   ├── site.json        # Name, title, description
+│   ├── about.json       # About section content
+│   ├── skills.json      # Skills categories
+│   ├── experience.json  # Work history
+│   ├── projects.json    # Projects
+│   ├── certifications.json
+│   ├── education.json
+│   └── contact.json     # Email, phone, social links
 ├── static/              # Static assets (CSS, images, favicon)
+│   └── admin/           # Decap CMS admin panel
+│       ├── index.html   # CMS entry point
+│       └── config.yml   # CMS schema and backend config
 ├── deno.json            # Deno configuration, tasks, and imports
 ├── fresh.config.ts      # Fresh framework configuration
 ├── fresh.gen.ts         # Auto-generated manifest (do not edit)
@@ -118,20 +139,26 @@ amanjoshi632.github.io/
 
 ## Customization
 
-### Editing Content
+### Editing Content via CMS
 
-All site content is centralized in `lib/config.ts`. Edit this file to update:
+Most content is managed through Decap CMS at `/admin/index.html`:
 
-- Personal information (name, title, description)
+- **Site Info** - Name, title, description, profile photo, resume
+- **About** - Introduction, career goals, highlights
+- **Skills** - 4 skill categories with items
+- **Experience** - Work history with achievements
+- **Projects** - Project entries with highlights
+- **Certifications** - Ongoing and completed certifications
+- **Education** - Education history
+- **Contact** - Email, phone, location, and unlimited social links
+
+### Code-Only Configuration
+
+Some layout elements are configured in `lib/config.ts`:
+
 - Navigation links
-- Hero section (subtitle, CTA buttons)
-- About section (intro, career goals, highlights)
-- Skills (4 categories: Accounting, Audit, Tax, Tools)
-- Experience timeline
-- Projects
-- Certifications
-- Education
-- Contact information
+- Hero CTA buttons
+- Footer tagline and quick links
 - Theme colors
 
 ### Theme Colors
@@ -156,12 +183,10 @@ theme: {
 
 ## Environment Variables
 
-No environment variables required for basic setup. All configuration is done through `lib/config.ts`.
-
-For deployment:
-
 | Variable | Required | Description |
 |----------|----------|-------------|
+| GITHUB_CLIENT_ID | Production | GitHub OAuth App client ID (for CMS) |
+| GITHUB_CLIENT_SECRET | Production | GitHub OAuth App client secret (for CMS) |
 | DENO_DEPLOYMENT_ID | No | Auto-set by Deno Deploy |
 | PORT | No | Server port (defaults to 8000) |
 
@@ -172,7 +197,16 @@ For deployment:
 1. Push code to GitHub
 2. Connect repository to [Deno Deploy](https://deno.com/deploy)
 3. Set entry point to `main.ts`
-4. Deploy automatically on git push
+4. Add environment variables in Deno Deploy dashboard
+5. Deploy automatically on git push
+
+### CMS Production Setup
+
+1. Create GitHub OAuth App at GitHub → Settings → Developer Settings → OAuth Apps
+2. Set callback URL to `https://your-domain.deno.dev/callback`
+3. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` to Deno Deploy
+4. Set `local_backend: false` in `static/admin/config.yml`
+5. Update `base_url` in config.yml to match your deployment URL
 
 ### Other Platforms
 

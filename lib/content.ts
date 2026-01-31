@@ -76,11 +76,17 @@ export interface EducationEntry {
   highlights?: string[];
 }
 
+export interface ContactLink {
+  title: string;
+  url: string;
+  icon?: string;
+}
+
 export interface ContactContent {
   email: string;
-  phone: string;
-  linkedin: string;
-  location: string;
+  phone?: string;
+  location?: string;
+  links?: ContactLink[];
 }
 
 // All content combined
@@ -124,8 +130,8 @@ const defaults: Content = {
   contact: {
     email: "email@example.com",
     phone: "",
-    linkedin: "",
     location: "",
+    links: [],
   },
 };
 
