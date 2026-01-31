@@ -4,7 +4,7 @@
 # PRODUCTION: Set local_backend: false (or remove the line)
 
 # Toggle this for local vs production
-local_backend: true
+local_backend: false
 
 backend:
   name: github
