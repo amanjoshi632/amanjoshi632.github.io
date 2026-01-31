@@ -10,7 +10,7 @@ backend:
   name: github
   repo: amanjoshi632/amanjoshi632.github.io  # Your GitHub repo
   branch: main
-  base_url: https://amanjoshi632-joshi.deno.dev  # Your production URL (for OAuth)
+  base_url: https://amanjoshi01.deno.dev  # Your production URL (for OAuth)
   auth_endpoint: /api/auth  # Fresh OAuth route
 
 # Media files stored in static/uploads
