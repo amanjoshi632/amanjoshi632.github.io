@@ -16,7 +16,24 @@
       "institution": "University of Calcutta",
       "year": "2021",
       "highlights": [
-        "Accounting & Finance Major"
+        "Accounting & Finance Major",
+        "A"
+      ]
+    },
+    {
+      "degree": "Higher Secondary",
+      "institution": "C.B.S.E",
+      "year": "2018",
+      "highlights": [
+        "6.4"
+      ]
+    },
+    {
+      "degree": "Secondary",
+      "institution": "C.B.S.E",
+      "year": "2016",
+      "highlights": [
+        "8.5"
       ]
     }
   ]
