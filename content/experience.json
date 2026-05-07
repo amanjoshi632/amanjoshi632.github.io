@@ -18,21 +18,6 @@
       "companyLogo": "/uploads/2.png"
     },
     {
-      "title": "Freelance Accounting & Business Support",
-      "company": "Freelance",
-      "type": "Full-Time",
-      "period": "Nov 2021 – Oct 2023",
-      "current": false,
-      "description": "• Maintained day-to-day bookkeeping and data entry using Tally ERP\n• Assisted in the preparation of trial balances and preliminary financial summaries\n• Performed bank, cash, and ledger reconciliations to ensure accuracy of records\n• Reviewed invoices, vouchers, and supporting documents for accuracy and record maintenance\n",
-      "achievements": [
-        "Managed day-to-day bookkeeping using Tally ERP",
-        "Prepared MIS reports and bank reconciliations",
-        "Handled billing, invoicing, and payment follow-ups",
-        "Coordinated with clients for document collection and compliance"
-      ],
-      "companyLogo": "/uploads/3.png"
-    },
-    {
       "current": false,
       "title": "PCG Advisor –Executive ",
       "company": "Motilal Oswal Financial Services Limited ",
@@ -46,6 +31,21 @@
         "Advising High Net Worth Individual clients on Equity, Derivatives, currency & commodity markets"
       ],
       "companyLogo": "/uploads/1.png"
+    },
+    {
+      "title": "Freelance Accounting & Business Support",
+      "company": "Freelance",
+      "type": "Full-Time",
+      "period": "Nov 2021 – Oct 2023",
+      "current": false,
+      "description": "• Maintained day-to-day bookkeeping and data entry using Tally ERP\n• Assisted in the preparation of trial balances and preliminary financial summaries\n• Performed bank, cash, and ledger reconciliations to ensure accuracy of records\n• Reviewed invoices, vouchers, and supporting documents for accuracy and record maintenance\n",
+      "achievements": [
+        "Managed day-to-day bookkeeping using Tally ERP",
+        "Prepared MIS reports and bank reconciliations",
+        "Handled billing, invoicing, and payment follow-ups",
+        "Coordinated with clients for document collection and compliance"
+      ],
+      "companyLogo": "/uploads/3.png"
     }
   ]
 }
