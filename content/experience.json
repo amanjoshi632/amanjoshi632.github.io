@@ -1,48 +1,36 @@
 {
   "sectionTitle": "Professional Experience",
-  "sectionSubtitle": "Career journey in accounting, audit, and financial services.",
+  "sectionSubtitle": "",
   "entries": [
     {
       "title": "Independent Accounting & Audit Support Consultant",
       "company": "Self-Employed",
-      "type": "Part-Time",
+      "type": "Full-Time",
       "period": "Dec 2024 – Present",
       "current": true,
-      "description": "Providing accounting and audit support services to small businesses and CA firms.",
+      "description": "• Maintaining books of accounts and supporting financial reporting for Micro, Small, and Medium Enterprises (MSMEs) clients\n• Preparing audit-ready schedules, supporting documentation, and working papers\n• Reviewed accounting entries and supporting documents to identify discrepancies and reporting inconsistencies\n• Assisting in GST, TDS, and income tax-related documentation and compliance support\n",
       "achievements": [
         "Preparing audit schedules and working papers for statutory audits",
         "Handling GST and TDS compliance documentation",
         "Maintaining books of accounts using Tally ERP",
         "Assisting with financial statement preparation and reconciliations"
-      ]
-    },
-    {
-      "title": "PCG Advisor (Executive)",
-      "company": "Motilal Oswal Financial Services",
-      "type": "Full-Time",
-      "period": "Mar 2024 – Nov 2024",
-      "current": false,
-      "description": "Client advisory role in the Private Client Group, handling HNI client portfolios.",
-      "achievements": [
-        "Managed client relationships and portfolio advisory services",
-        "Ensured compliance with SEBI regulations and internal policies",
-        "Prepared client reports and settlement documentation",
-        "Gained exposure to capital markets and financial instruments"
-      ]
+      ],
+      "companyLogo": "/uploads/2.png"
     },
     {
       "title": "Freelance Accounting & Business Support",
-      "company": "Various Clients",
-      "type": "Part-Time",
+      "company": "Freelance",
+      "type": "Full-Time",
       "period": "Nov 2021 – Oct 2023",
       "current": false,
-      "description": "Provided bookkeeping and business support services to small businesses.",
+      "description": "• Maintained day-to-day bookkeeping and data entry using Tally ERP\n• Assisted in the preparation of trial balances and preliminary financial summaries\n• Performed bank, cash, and ledger reconciliations to ensure accuracy of records\n• Reviewed invoices, vouchers, and supporting documents for accuracy and record maintenance\n",
       "achievements": [
         "Managed day-to-day bookkeeping using Tally ERP",
         "Prepared MIS reports and bank reconciliations",
         "Handled billing, invoicing, and payment follow-ups",
         "Coordinated with clients for document collection and compliance"
-      ]
+      ],
+      "companyLogo": "/uploads/3.png"
     }
   ]
 }
