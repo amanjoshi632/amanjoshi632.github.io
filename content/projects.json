@@ -3,7 +3,24 @@
   "sectionSubtitle": "Research projects demonstrating analytical and financial skills.",
   "entries": [
     {
-      "title": "Corporate Social Responsibility Analysis – Reliance Industries Ltd",
+      "title": "Analyzed the impact of Micro, Small, and Medium Enterprises (MSMEs) on India’s economic development ",
+      "type": "Academic Project,",
+      "description": "Analyzed the contribution of MSMEs toward employment generation, GDP growth, and economic development in India. Evaluated government initiatives, financing challenges, and the role of MSMEs in entrepreneurship and regional development using research-based financial and economic analysis.",
+      "highlights": [
+        "Studied the contribution of MSMEs toward employment generation, GDP growth, and industrial development in Indial development in India",
+        "Analyzed the role of MSMEs in entrepreneurship development and regional economic growth",
+        "Reviewed government policies, financial support mechanisms, and challenges affecting MSME growth",
+        "Conducted research using financial and economic data from reports, publications, and government sources"
+      ],
+      "skills": [
+        "Financial Analysis",
+        "Economic Research",
+        "Financial Reporting",
+        "Business Analysis"
+      ]
+    },
+    {
+      "title": "Conducted financial performance analysis of Corporate Social Responsibility (CSR) expenditure of Reliance Industries Ltd (",
       "type": "Academic Project",
       "description": "Comprehensive analysis of CSR spending patterns and compliance for Reliance Industries Limited.",
       "highlights": [
@@ -12,7 +29,12 @@
         "Performed ratio analysis and trend identification",
         "Identified key focus areas and spending patterns"
       ],
-      "skills": ["Financial Analysis", "Ratio Analysis", "Compliance Review", "Research"]
+      "skills": [
+        "Financial Analysis",
+        "Ratio Analysis",
+        "Compliance Review",
+        "Research"
+      ]
     }
   ]
 }
