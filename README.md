@@ -198,18 +198,20 @@ theme: {
 ### Deno Deploy (Recommended)
 
 1. Push code to GitHub
-2. Connect repository to [Deno Deploy](https://deno.com/deploy)
-3. Set entry point to `main.ts`
-4. Add environment variables in Deno Deploy dashboard
-5. Deploy automatically on git push
+2. In [console.deno.com](https://console.deno.com), create an app and connect this GitHub repository
+3. Fresh is auto-detected (build command `deno task build`); no entrypoint or YAML config needed
+4. Add environment variables in the app's dashboard
+5. Deploys automatically on push to `main`
+
+Production URL: `https://portfolio.amanjoshi.deno.net` (`<app>.<org>.deno.net` scheme)
 
 ### CMS Production Setup
 
 1. Create GitHub OAuth App at GitHub → Settings → Developer Settings → OAuth Apps
-2. Set callback URL to `https://your-domain.deno.dev/callback`
-3. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` to Deno Deploy
+2. Set callback URL to `https://portfolio.amanjoshi.deno.net/callback`
+3. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in the Deno Deploy dashboard
 4. Set `local_backend: false` in `static/admin/config.yml`
-5. Update `base_url` in config.yml to match your deployment URL
+5. Ensure `base_url` in config.yml matches the deployment URL
 
 ### Other Platforms
 
