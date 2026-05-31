@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/config.ts";
 import type { ContactContent } from "@/lib/content.ts";
+import { COMMIT_SHA } from "@/lib/version.ts";
 
 interface FooterProps {
   name: string;
@@ -63,6 +64,9 @@ export function Footer({ name, contact }: FooterProps) {
         {/* Copyright */}
         <div class="footer-bottom text-center">
           <p>&copy; {currentYear} {name}. All rights reserved.</p>
+          <p class="commit-sha" title="Deployed commit">
+            <span aria-hidden="true">⌗</span> {COMMIT_SHA}
+          </p>
         </div>
       </div>
     </footer>
