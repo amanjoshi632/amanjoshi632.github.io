@@ -33,9 +33,7 @@ export function Skills({ skills }: SkillsProps) {
           <div key={category.key} class="skill-category">
             <h3 class="skill-category-title">{category.title}</h3>
             <ul class="skill-list">
-              {category.items.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
+              {category.items.map((skill, index) => <li key={index}>{skill}</li>)}
             </ul>
           </div>
         ))}

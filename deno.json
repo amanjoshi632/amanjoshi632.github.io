@@ -1,14 +1,14 @@
 {
-  "lock": false,
+  "nodeModulesDir": "manual",
   "tasks": {
     "start": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
-    "preview": "deno run -A main.ts",
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "preview": "deno serve -A _fresh/server.js",
+    "check": "deno fmt --check && deno lint && deno check",
     "fmt": "deno fmt",
     "lint": "deno lint",
     "lint:fix": "deno lint --fix",
-    "update": "deno run -A -r https://fresh.deno.dev/update ."
+    "update": "deno run -A -r jsr:@fresh/update ."
   },
   "lint": {
     "rules": { "tags": ["fresh", "recommended"] },
@@ -21,20 +21,39 @@
     "semiColons": true,
     "singleQuote": false,
     "proseWrap": "preserve",
-    "exclude": ["_fresh/", "node_modules/"]
+    "exclude": ["_fresh/", "node_modules/", "static/"]
   },
   "exclude": ["**/_fresh/*", "node_modules/"],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "preact": "https://esm.sh/preact@10.22.0",
-    "preact/": "https://esm.sh/preact@10.22.0/",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "preact": "npm:preact@^10.29.1",
+    "@preact/signals": "npm:@preact/signals@^2.9.0",
     "$std/": "https://deno.land/std@0.216.0/",
     "@/": "./",
     "@/components/": "./components/",
     "@/islands/": "./islands/",
-    "@/lib/": "./lib/"
+    "@/lib/": "./lib/",
+    "fresh": "jsr:@fresh/core@^2.3.3"
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact", "strict": true }
+  "compilerOptions": {
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
+    "jsx": "precompile",
+    "jsxImportSource": "preact",
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
+    ],
+    "strict": true
+  }
 }

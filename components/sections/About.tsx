@@ -35,9 +35,7 @@ export function About({ about }: AboutProps) {
         <div>
           <h3 class="font-semibold text-lg mb-4 text-primary">Key Highlights</h3>
           <ul class="list-disc">
-            {about.highlights.map((highlight, index) => (
-              <li key={index}>{highlight}</li>
-            ))}
+            {about.highlights.map((highlight, index) => <li key={index}>{highlight}</li>)}
           </ul>
         </div>
       </div>

@@ -29,7 +29,7 @@ export function Experience({ experience }: ExperienceProps) {
                   <h3 class="card-title">{role.title}</h3>
                   <p class="card-subtitle">
                     {role.company}
-                    {role.type && <span class="text-muted"> · {role.type}</span>}
+                    {role.type && <span class="text-muted">· {role.type}</span>}
                   </p>
                 </div>
                 <div class="flex items-center gap-2">

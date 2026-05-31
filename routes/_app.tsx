@@ -1,4 +1,6 @@
-import { type PageProps } from "$fresh/server.ts";
+// deno-lint-ignore-file react-no-danger
+// (inline theme script prevents flash-of-wrong-theme; dangerouslySetInnerHTML required)
+import { type PageProps } from "fresh";
 
 // Script to prevent flash of wrong theme (runs before page renders)
 const themeScript = `

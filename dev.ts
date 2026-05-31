@@ -1,8 +1,13 @@
 #!/usr/bin/env -S deno run -A --watch=static/,routes/
 
-import dev from "$fresh/dev.ts";
-import config from "./fresh.config.ts";
+import { Builder } from "fresh/dev";
 
-import "$std/dotenv/load.ts";
+const builder = new Builder();
 
-await dev(import.meta.url, "./main.ts", config);
+if (Deno.args.includes("build")) {
+  // Production build -> _fresh/server.js
+  await builder.build();
+} else {
+  // Dev server with live reload
+  await builder.listen(() => import("./main.ts"));
+}
