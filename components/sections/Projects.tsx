@@ -37,9 +37,7 @@ export function Projects({ projects }: ProjectsProps) {
               <div>
                 <h4 class="font-semibold text-sm mb-3 text-primary">Key Highlights</h4>
                 <ul class="list-disc">
-                  {project.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex}>{highlight}</li>
-                  ))}
+                  {project.highlights.map((highlight, hIndex) => <li key={hIndex}>{highlight}</li>)}
                 </ul>
               </div>
 

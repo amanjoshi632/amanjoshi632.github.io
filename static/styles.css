@@ -551,6 +551,27 @@ section[id] {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* Deployed commit stamp: hidden in the footer color, reveals on hover.
+   Scoped under .footer to beat `.footer p` specificity. */
+.footer .commit-sha {
+  margin-top: 0.5rem;
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  /* Same as .footer background -> invisible unless you know it's there */
+  color: #1F2933;
+  filter: blur(1px);
+  transition: color 0.2s ease, filter 0.2s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.footer .commit-sha:hover {
+  color: rgba(255, 255, 255, 0.8);
+  filter: blur(0);
+  user-select: text;
+}
+
 /* ============================================
    Utility: Lists
    ============================================ */

@@ -17,21 +17,21 @@ A modern, single-page portfolio website for Aman Joshi, a CPA/Audit professional
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Deno Fresh 1.7.3 | Modern web framework with server-side rendering and islands architecture |
-| Preact 10.22.0 | Lightweight React alternative for interactive components |
-| TypeScript | Type-safe development with strict compiler options |
-| Decap CMS 3.x | Git-based headless CMS for content management |
-| Signals | Reactive state management for theme toggle and mobile nav |
-| Google Fonts | Inter (headings) and Open Sans (body) for professional typography |
-| CSS Custom Properties | Theme system with dark/light mode support |
+| Technology            | Purpose                                                                  |
+| --------------------- | ------------------------------------------------------------------------ |
+| Deno Fresh 2.3.3      | Modern web framework with server-side rendering and islands architecture |
+| Preact 10.29.2        | Lightweight React alternative for interactive components                 |
+| TypeScript            | Type-safe development with strict compiler options                       |
+| Decap CMS 3.x         | Git-based headless CMS for content management                            |
+| Signals               | Reactive state management for theme toggle and mobile nav                |
+| Google Fonts          | Inter (headings) and Open Sans (body) for professional typography        |
+| CSS Custom Properties | Theme system with dark/light mode support                                |
 
 ## Getting Started
 
 ### Prerequisites
 
-- Deno 1.37+ installed ([installation guide](https://deno.land/manual/getting_started/installation))
+- Deno 2.x installed ([installation guide](https://docs.deno.com/runtime/getting_started/installation/)) — Fresh 2 requires Deno 2
 - Git for version control
 
 ### Installation
@@ -114,7 +114,7 @@ amanjoshi632.github.io/
 ├── routes/              # Fresh routes
 │   ├── _app.tsx         # App wrapper (HTML head, fonts, theme)
 │   ├── index.tsx        # Homepage (renders all sections)
-│   └── _404.tsx         # Custom 404 page
+│   └── _error.tsx       # Unified error page (404 + 500)
 ├── lib/                 # Utilities and configuration
 │   ├── config.ts        # Non-CMS config (nav, theme, CTAs)
 │   └── content.ts       # CMS content loader and types
@@ -132,10 +132,9 @@ amanjoshi632.github.io/
 │       ├── index.html   # CMS entry point
 │       └── config.yml   # CMS schema and backend config
 ├── deno.json            # Deno configuration, tasks, and imports
-├── fresh.config.ts      # Fresh framework configuration
-├── fresh.gen.ts         # Auto-generated manifest (do not edit)
-├── main.ts              # Production entry point
-└── dev.ts               # Development server entry point
+├── utils.ts             # Fresh `define` helper (typed handlers/pages)
+├── main.ts              # App entry point (App + staticFiles + fsRoutes)
+└── dev.ts               # Dev server / production build (Fresh Builder)
 ```
 
 ## Customization
@@ -186,12 +185,12 @@ theme: {
 
 ## Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| GITHUB_CLIENT_ID | Production | GitHub OAuth App client ID (for CMS) |
+| Variable             | Required   | Description                              |
+| -------------------- | ---------- | ---------------------------------------- |
+| GITHUB_CLIENT_ID     | Production | GitHub OAuth App client ID (for CMS)     |
 | GITHUB_CLIENT_SECRET | Production | GitHub OAuth App client secret (for CMS) |
-| DENO_DEPLOYMENT_ID | No | Auto-set by Deno Deploy |
-| PORT | No | Server port (defaults to 8000) |
+| DENO_DEPLOYMENT_ID   | No         | Auto-set by Deno Deploy                  |
+| PORT                 | No         | Server port (defaults to 8000)           |
 
 ## Deployment
 
@@ -199,9 +198,10 @@ theme: {
 
 1. Push code to GitHub
 2. In [console.deno.com](https://console.deno.com), create an app and connect this GitHub repository
-3. Fresh is auto-detected (build command `deno task build`); no entrypoint or YAML config needed
-4. Add environment variables in the app's dashboard
-5. Deploys automatically on push to `main`
+3. Set the build command to `deno task build` (Fresh 2 compiles routes + islands into `_fresh/`)
+4. The production server is `_fresh/server.js`, run with `deno serve -A _fresh/server.js`
+5. Add environment variables in the app's dashboard
+6. Deploys automatically on push to `main`
 
 Production URL: `https://portfolio.amanjoshi.deno.net` (`<app>.<org>.deno.net` scheme)
 
@@ -216,6 +216,7 @@ Production URL: `https://portfolio.amanjoshi.deno.net` (`<app>.<org>.deno.net` s
 ### Other Platforms
 
 Compatible with any platform supporting Deno:
+
 - Deno Deploy
 - Cloudflare Workers (with Deno runtime)
 - Self-hosted with Docker

@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from "fresh/compat";
 
 /**
  * GitHub OAuth - Step 2: Handle callback and exchange code for token
@@ -10,7 +10,8 @@ const GITHUB_CLIENT_SECRET = Deno.env.get("GITHUB_CLIENT_SECRET") || "";
 const GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token";
 
 export const handler: Handlers = {
-  async GET(req) {
+  async GET(ctx) {
+    const req = ctx.req;
     const url = new URL(req.url);
     const code = url.searchParams.get("code");
 
@@ -57,10 +58,12 @@ export const handler: Handlers = {
 
         // Send the token to the parent window (Decap CMS)
         window.opener.postMessage(
-          'authorization:github:success:${JSON.stringify({
-            token: tokenData.access_token,
-            provider: "github",
-          })}',
+          'authorization:github:success:${
+        JSON.stringify({
+          token: tokenData.access_token,
+          provider: "github",
+        })
+      }',
           e.origin
         );
 

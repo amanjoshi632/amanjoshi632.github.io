@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from "fresh/compat";
 
 /**
  * GitHub OAuth - Step 1: Redirect to GitHub for authorization
@@ -9,7 +9,8 @@ const GITHUB_CLIENT_ID = Deno.env.get("GITHUB_CLIENT_ID") || "";
 const GITHUB_AUTHORIZE_URL = "https://github.com/login/oauth/authorize";
 
 export const handler: Handlers = {
-  GET(req) {
+  GET(ctx) {
+    const req = ctx.req;
     const url = new URL(req.url);
     const provider = url.searchParams.get("provider");
 

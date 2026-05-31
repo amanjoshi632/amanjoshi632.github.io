@@ -16,7 +16,10 @@ interface HeaderProps {
 export function Header({ name }: HeaderProps) {
   return (
     <header class="header">
-      <nav class="container flex items-center justify-between" style="height: var(--header-height);">
+      <nav
+        class="container flex items-center justify-between"
+        style="height: var(--header-height);"
+      >
         {/* Logo / Name */}
         <a href="/" class="font-heading font-bold text-xl text-primary">
           {name}

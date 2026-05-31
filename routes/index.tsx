@@ -1,6 +1,6 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
-import { loadContent, Content } from "@/lib/content.ts";
+import { Head } from "fresh/runtime";
+import { define } from "@/utils.ts";
+import { loadContent } from "@/lib/content.ts";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import { Hero } from "@/components/sections/Hero.tsx";
@@ -15,19 +15,19 @@ import { Contact } from "@/components/sections/Contact.tsx";
 /**
  * Handler to load CMS content at request time
  */
-export const handler: Handlers<Content> = {
-  async GET(_req, ctx) {
+export const handler = define.handlers({
+  async GET() {
     const content = await loadContent();
-    return ctx.render(content);
+    return { data: content };
   },
-};
+});
 
 /**
  * Homepage - Single page portfolio
  * All sections rendered in order with anchor navigation
  * Content loaded from /content/*.json files
  */
-export default function Home({ data: content }: PageProps<Content>) {
+export default define.page<typeof handler>(function Home({ data: content }) {
   return (
     <>
       <Head>
@@ -50,4 +50,4 @@ export default function Home({ data: content }: PageProps<Content>) {
       <Footer name={content.site.name} contact={content.contact} />
     </>
   );
-}
+});

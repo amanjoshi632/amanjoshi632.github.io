@@ -1,4 +1,7 @@
-import { type PageProps } from "$fresh/server.ts";
+// deno-lint-ignore-file react-no-danger
+// (inline theme script prevents flash-of-wrong-theme; dangerouslySetInnerHTML required)
+import { type PageProps } from "fresh";
+import { COMMIT_SHA } from "@/lib/version.ts";
 
 // Script to prevent flash of wrong theme (runs before page renders)
 const themeScript = `
@@ -32,8 +35,8 @@ export default function App({ Component }: PageProps) {
           rel="stylesheet"
         />
 
-        {/* Styles */}
-        <link rel="stylesheet" href="/styles.css" />
+        {/* Styles (versioned by commit SHA so deploys never serve stale CSS) */}
+        <link rel="stylesheet" href={`/styles.css?v=${COMMIT_SHA}`} />
       </head>
       <body>
         <Component />
