@@ -23,17 +23,13 @@ export function Footer({ name, contact }: FooterProps) {
         <div class="grid grid-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 class="font-heading font-bold text-xl text-white mb-2">{name}</h3>
-            {footer.tagline && (
-              <p class="text-sm" style="color: rgba(255,255,255,0.7);">
-                {footer.tagline}
-              </p>
-            )}
+            <h3 class="font-heading font-bold text-xl mb-2">{name}</h3>
+            {footer.tagline && <p class="text-sm">{footer.tagline}</p>}
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+            <h4 class="font-semibold mb-3">Quick Links</h4>
             <ul class="flex flex-col gap-2">
               {footer.quickLinks.map((link) => (
                 <li key={link.href}>
@@ -45,7 +41,7 @@ export function Footer({ name, contact }: FooterProps) {
 
           {/* Contact */}
           <div>
-            <h4 class="font-semibold text-white mb-3">Connect</h4>
+            <h4 class="font-semibold mb-3">Connect</h4>
             <ul class="flex flex-col gap-2">
               <li>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
