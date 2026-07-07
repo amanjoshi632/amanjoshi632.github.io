@@ -6,6 +6,7 @@
     "jsr:@fresh/build-id@1": "1.0.1",
     "jsr:@fresh/core@^2.3.3": "2.3.3",
     "jsr:@std/bytes@^1.0.6": "1.0.6",
+    "jsr:@std/dotenv@~0.225.7": "0.225.7",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.8": "1.0.10",
     "jsr:@std/fs@^1.0.19": "1.0.24",
@@ -22,14 +23,15 @@
     "jsr:@std/semver@^1.0.6": "1.0.8",
     "jsr:@std/uuid@^1.0.9": "1.1.1",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
-    "npm:@preact/signals@^2.5.1": "2.9.1_preact@10.29.2",
-    "npm:@preact/signals@^2.9.0": "2.9.1_preact@10.29.2",
+    "npm:@preact/signals@^2.5.1": "2.9.3_preact@10.29.5",
+    "npm:@preact/signals@^2.9.3": "2.9.3_preact@10.29.5",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.7",
-    "npm:preact-render-to-string@^6.6.3": "6.7.0_preact@10.29.2",
-    "npm:preact@^10.28.2": "10.29.2",
-    "npm:preact@^10.29.1": "10.29.2"
+    "npm:preact-render-to-string@^6.6.3": "6.7.0_preact@10.29.5",
+    "npm:preact@^10.28.2": "10.29.5",
+    "npm:preact@^10.29.1": "10.29.5",
+    "npm:preact@^10.29.5": "10.29.5"
   },
   "jsr": {
     "@deno/esbuild-plugin@1.2.1": {
@@ -76,6 +78,9 @@
     },
     "@std/bytes@1.0.6": {
       "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
+    },
+    "@std/dotenv@0.225.7": {
+      "integrity": "11d8db03ca4ad5aba9eba809f2e8058b2a4f320b7b09fea4b360e162928329e3"
     },
     "@std/encoding@1.0.10": {
       "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
@@ -266,11 +271,11 @@
     "@opentelemetry/api@1.9.1": {
       "integrity": "sha512-gLyJlPHPZYdAk1JENA9LeHejZe1Ti77/pTeFm/nMXmQH/HFZlcS/O2XJB+L8fkbrNSqhdtlvjBVjxwUYanNH5Q=="
     },
-    "@preact/signals-core@1.14.2": {
-      "integrity": "sha512-RZHdBj9ZF4n40Rp4jS052EHHjBWf96P9oNdXPfhQTovCuWY9iQn3Gq+gOTJSgBO9A/JBuPfMOWsSX/lIU9Pc/A=="
+    "@preact/signals-core@1.14.4": {
+      "integrity": "sha512-HNB6HYeYKhQbJ1aKl+YRjrS4+QWHLKX6qKoUsfS/m0vqzsVaEBiZiaKbG/e+NKk2ch5ALQr/ihWaMHxiCuuWHA=="
     },
-    "@preact/signals@2.9.1_preact@10.29.2": {
-      "integrity": "sha512-xVqN8mJjbSN5IB/8Ubmd9NN+Ew6zJswoRxrjZbH3YsgkMshFeO6d8zxEFpHRTq9GJZx7cnPs2CnCpFqtGXGNsw==",
+    "@preact/signals@2.9.3_preact@10.29.5": {
+      "integrity": "sha512-4g3L/dYgUt0PPE6mnYsgCP/3DEhmAYTQxjzwfSPnXQ7Lj1WPBBEY83F48X0RcNEP3ycr57T8Hcpg4PVU5VM7pg==",
       "dependencies": [
         "@preact/signals-core",
         "preact"
@@ -313,14 +318,14 @@
       "scripts": true,
       "bin": true
     },
-    "preact-render-to-string@6.7.0_preact@10.29.2": {
+    "preact-render-to-string@6.7.0_preact@10.29.5": {
       "integrity": "sha512-Z4WR8fmLMRpdYqJ9i7vrlXSsSrxVJydwrkEXHapexfARbWfGb7vGcnvNQnIzN0cXciMVOlz/XLoiMCi9gUsy9Q==",
       "dependencies": [
         "preact"
       ]
     },
-    "preact@10.29.2": {
-      "integrity": "sha512-7tNmwg/7mzzAoB/8kSg6Hl37JraAZw3Z3A0JSY7VXlZwo82Xn0G7wKbNNs2qoF4ZEEsQGTwDAroNdqKs1ofJxQ=="
+    "preact@10.29.5": {
+      "integrity": "sha512-zIai7HLEIz9c4GNfqpiuu5K9I1szXNtx0Ykr8f1Vbm1NasSVIvXGRxc8R8alLC+G+zonAt0TiUUBMn4+CiTgaA=="
     }
   },
   "remote": {
@@ -332,8 +337,9 @@
   "workspace": {
     "dependencies": [
       "jsr:@fresh/core@^2.3.3",
-      "npm:@preact/signals@^2.9.0",
-      "npm:preact@^10.29.1"
+      "jsr:@std/dotenv@~0.225.7",
+      "npm:@preact/signals@^2.9.3",
+      "npm:preact@^10.29.5"
     ]
   }
 }

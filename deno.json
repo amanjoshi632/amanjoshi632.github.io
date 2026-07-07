@@ -25,9 +25,9 @@
   },
   "exclude": ["**/_fresh/*", "node_modules/"],
   "imports": {
-    "preact": "npm:preact@^10.29.1",
-    "@preact/signals": "npm:@preact/signals@^2.9.0",
-    "$std/": "https://deno.land/std@0.216.0/",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.7",
+    "preact": "npm:preact@^10.29.5",
+    "@preact/signals": "npm:@preact/signals@^2.9.3",
     "@/": "./",
     "@/components/": "./components/",
     "@/islands/": "./islands/",
