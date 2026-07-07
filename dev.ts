@@ -6,7 +6,13 @@ const builder = new Builder();
 
 if (Deno.args.includes("build")) {
   // Stamp the current commit SHA into lib/version.ts so the footer can show it.
-  await stampCommitSha();
+  // Only on Deno Deploy / CI builds — local builds keep "dev" so the tracked
+  // file is never dirtied in the working tree.
+  const isDeployBuild = Deno.env.get("DENO_DEPLOY_BUILD_ID") !== undefined ||
+    Deno.env.get("CI") !== undefined;
+  if (isDeployBuild) {
+    await stampCommitSha();
+  }
   // Production build -> _fresh/server.js
   await builder.build();
 } else {
