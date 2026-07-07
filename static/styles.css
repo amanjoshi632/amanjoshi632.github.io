@@ -6,11 +6,12 @@
   --color-primary: #1F2933;      /* Charcoal */
   --color-secondary: #6B7280;    /* Cool Grey */
   --color-accent: #0EA5A4;       /* Teal */
-  --color-background: #FAFAFA;   /* Off-White */
+  --color-background: #F3F4F6;   /* Cool grey - lets white surfaces read as elevated */
   --color-surface: #FFFFFF;      /* White for cards */
   --color-text: #1F2933;
   --color-text-muted: #6B7280;
   --color-border: #E5E7EB;
+  --color-footer-bg: #FFFFFF;    /* Surface-level footer, mirrors dark mode elevation */
 
   /* Typography */
   --font-heading: 'Inter', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
@@ -36,6 +37,7 @@
   --color-text: #F9FAFB;
   --color-text-muted: #9CA3AF;
   --color-border: #374151;
+  --color-footer-bg: #1F2937;    /* Same as surface - lighter than page bg */
 }
 
 /* System preference: auto dark mode when no data-theme is set */
@@ -49,6 +51,7 @@
     --color-text: #F9FAFB;
     --color-text-muted: #9CA3AF;
     --color-border: #374151;
+    --color-footer-bg: #1F2937;
   }
 }
 
@@ -519,7 +522,7 @@ section[id] {
    Component: Footer
    ============================================ */
 .footer {
-  background-color: var(--color-surface);
+  background-color: var(--color-footer-bg);
   color: var(--color-text);
   border-top: 1px solid var(--color-border);
   padding: 3rem 0 1.5rem;
@@ -559,7 +562,7 @@ section[id] {
   font-size: 0.75rem;
   letter-spacing: 0.02em;
   /* Same as .footer background -> invisible unless you know it's there */
-  color: var(--color-surface);
+  color: var(--color-footer-bg);
   filter: blur(1px);
   transition: color 0.2s ease, filter 0.2s ease;
   cursor: default;
